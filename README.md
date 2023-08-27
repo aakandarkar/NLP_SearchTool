@@ -89,8 +89,14 @@ The script initializes a Flask web application named `app`.
 
 ## 6. Running the Application
 
-### Starting the Application
-Run the script using the command `python searchtool.py`. This will start the Flask web application.
+### 1) Loading the Requirements
+Run the script using the command `pip install -r requirements.txt`. This will start installing the required packages for Flask web application.
+
+### 2) Starting the Application
+Run the script using the command `python searchtool_wsgi.py`. This will start the Flask web application.
+
+### 3) Stop the Application
+Run the script using the command `Crtl + C` on command line. This will stop the Flask web application.
 
 ### Accessing the User Interface
 Open a web browser and navigate to `http://localhost:3001` to access the search tool's user interface. Enter your search query and submit it to retrieve matching offers.

@@ -18,6 +18,7 @@ This document provides an overview of the `searchtool.py` script, which is a Pyt
     - [`get_matching_string(str1, str2)`](#get_matching_stringstr1-str2)
     - [`vectorize_data_based_on_metadata(product_input)`](#vectorize_data_based_on_metadataproduct_input)
     - [`search_offers()`](#search_offers)
+    - [`index()`](#index)
 
 4. [Data Sources](#data-sources)
     - [Brand Data](#brand-data)
@@ -64,6 +65,28 @@ Performs text vectorization using CountVectorizer on the metadata of products. C
 
 ### `search_offers()`
 Flask route function for the search page ("/search"). Handles POST requests containing user queries. Displays the search results in an HTML table.
+
+This function is a route handler for the "/search" endpoint in the Flask web application. It handles both GET and POST requests related to searching for offers based on user queries. Here's a breakdown of its functionality:
+
+Request Handling: This function checks if the incoming request is a POST request, which means the user has submitted a search query through the search form on the web interface.
+
+Processing the Query: If it's a POST request, the function retrieves the user's search query from the form data. It then calls the vectorize_data_based_on_metadata() function, passing the search query as input.
+
+Rendering Search Results: The function receives a DataFrame of similar offers and their corresponding similarity scores from the vectorize_data_based_on_metadata() function. It adds the similarity scores as a new column to the DataFrame and resets the index for proper display.
+
+Rendering Templates: If offers are found, the function renders an HTML template called "result.html" and passes the DataFrame as a variable to be displayed in an HTML table. If no offers are found, it displays an error message indicating that no similar products were found.
+
+Error Handling: If any errors occur during the search process or rendering of the template, the function displays a generic error message.
+
+### `index()`
+
+This function is a route handler for the root ("/") endpoint in the Flask web application. It is responsible for rendering the main interface of the search tool. Here's what this function does:
+
+Rendering the Template: When a user accesses the root URL (the main page), the function renders an HTML template called "index.html." This template contains the user interface components, including a search bar and a search button.
+
+User Interaction: The template allows users to input their search queries and submit them using the search button. The form sends a POST request to the /search endpoint when the user submits a query.
+
+Initial Display: When the main page is accessed initially (not as a result of a search), the function renders the template with the search bar but without any search results.
 
 ---
 

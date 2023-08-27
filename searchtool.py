@@ -55,8 +55,8 @@ def vectorize_data_based_on_metadata(product_input):
     non_zero_scores = simil_scores[simil_scores['score'] > 0]
 
     if len(non_zero_scores) == 0:
-        print('No similar products found.  Please refine your search terms and try again')
-        return
+        print('--from vectorize_data_based_on_metadata() --> No similar products found.  Please refine your search terms and try again')
+        return pd.DataFrame(columns=['Offers', 'score']), pd.DataFrame(columns=['score'])
 
     if len(non_zero_scores) < 10:
         item_count = len(non_zero_scores)
@@ -69,7 +69,7 @@ def vectorize_data_based_on_metadata(product_input):
     # 'Search_Score': similarity_scores
     }
     df = pd.DataFrame(data)
-    #return (all_merge_df['OFFER'].iloc[similarity_scores.index])
+
     return df,similarity_scores
 
 
@@ -135,13 +135,21 @@ def index():
 
 @app.route('/search', methods=['GET','POST'])
 def search_offers():
-    print("called")
-    if request.method == 'POST':
-        offers_df,score = vectorize_data_based_on_metadata(request.form['searchbar'])
-        offers_df['score'] = score
-        result_df = offers_df.reset_index(drop=True)
-    return render_template('result.html',  tables=[result_df.to_html(classes='data')], titles=result_df.columns.values)
+        if request.method == 'POST':
+            offers_df,score = vectorize_data_based_on_metadata(request.form['searchbar'])
+            offers_df['score'] = score
+            result_df = offers_df.reset_index(drop=True)
+            if offers_df is not None:
+                if len(offers_df) > 0:
+                    return render_template('result.html', tables=[offers_df.to_html(classes='data')], titles=offers_df.columns.values)
+                else:
+                    error_message = "No similar products found. Please refine your search terms and try again."
+                    return render_template('result.html', error_message=error_message)
+            else:
+                error_message = "An error occurred during processing. Please try again later."
+                return render_template('result.html', error_message=error_message)
+        else:
+             return render_template('result.html', error_message="Please use the search form to submit a query.")
 
-
-#if __name__ == '__main__':
-#      app.run(host='0.0.0.0', port=3001)
+if __name__ == '__main__':
+      app.run(host='0.0.0.0', port=3001)

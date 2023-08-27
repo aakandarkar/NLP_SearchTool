@@ -1,14 +1,14 @@
 {
      "builds": [
          {
-             "src": "searchtool.py",
+             "src": "./searchtool.py",
              "use": "@vercel/python"
          }
      ],
      "routes": [
          {
              "src": "/(.*)",
-             "dest": "searchtool.py"
+             "dest": "/"
          }
      ]
  }

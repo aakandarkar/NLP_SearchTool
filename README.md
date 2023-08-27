@@ -122,6 +122,6 @@ Run the script using the command `python searchtool_wsgi.py`. This will start th
 Run the script using the command `Crtl + C` on command line. This will stop the Flask web application.
 
 ### Accessing the User Interface
-Open a web browser and navigate to `http://localhost:3001` to access the search tool's user interface. Enter your search query and submit it to retrieve matching offers.
+Open a web browser and navigate to `http://localhost:5000` to access the search tool's user interface. Enter your search query and submit it to retrieve matching offers.
 
 ---

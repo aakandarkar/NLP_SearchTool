@@ -143,5 +143,5 @@ def search_offers():
     return render_template('result.html',  tables=[result_df.to_html(classes='data')], titles=result_df.columns.values)
 
 
-if __name__ == '__main__':
-      app.run(host='0.0.0.0', port=3001)
+#if __name__ == '__main__':
+#      app.run(host='0.0.0.0', port=3001)

@@ -15,10 +15,8 @@ This document provides an overview of the `searchtool.py` script, which is a Pyt
     - [User Interface](#user-interface)
 
 3. [Functions](#functions)
-    - [`map_retailer(offer_text)`](#map_retaileroffer_text)
     - [`get_matching_string(str1, str2)`](#get_matching_stringstr1-str2)
     - [`vectorize_data_based_on_metadata(product_input)`](#vectorize_data_based_on_metadataproduct_input)
-    - [`index()`](#index)
     - [`search_offers()`](#search_offers)
 
 4. [Data Sources](#data-sources)
@@ -58,17 +56,11 @@ The web interface allows users to input their search queries and submit them for
 
 ## 3. Functions
 
-### `map_retailer(offer_text)`
-Maps the retailer based on the presence of retailer keywords in the offer text. Returns the mapped retailer or "Unknown" if no match is found.
-
 ### `get_matching_string(str1, str2)`
 Calculates the similarity score between two strings using the fuzzy string matching algorithm. Returns the second string if the similarity score is above a specified threshold; otherwise, returns "Unknown".
 
 ### `vectorize_data_based_on_metadata(product_input)`
 Performs text vectorization using CountVectorizer on the metadata of products. Computes cosine similarity between the input query and all products. Returns a DataFrame of similar offers and their similarity scores.
-
-### `index()`
-Flask route function for the home page ("/"). Renders the main index.html template.
 
 ### `search_offers()`
 Flask route function for the search page ("/search"). Handles POST requests containing user queries. Displays the search results in an HTML table.

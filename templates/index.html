@@ -1,0 +1,130 @@
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+
+.google {
+  width: 25%;
+}
+.drop {
+  width: 5%;
+}
+.googlogo {
+  text-align: center;
+}
+text {
+  font-family: sans-serif;
+}
+.login {
+  text-align: right;
+  color: blue;
+}
+.button2 {
+  background-color: white; 
+  color: black;
+  border: 2px solid #358ffc;
+  padding: 10px;
+}
+
+.button2:hover {
+  background-color: #358ffc;
+  color: white;
+  padding: 10px;
+}
+i {
+  color: darkgrey;
+}
+.nav {
+  background-color: white; 
+  color: black;
+  border: 2px solid darkgrey;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.nav:hover {
+  background-color: darkgrey;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+footer {
+  text-align: center; font-family: sans-serif; color: grey;
+}
+a {
+  color: grey;
+}
+#search {
+  border-radius: 25px;
+  border: 2px solid #afafaf;
+  padding: 20px; 
+  width: 550px;
+  height: 50px; 
+}
+/* Style The Dropdown Button */
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 1px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  ;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 16px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 160px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+</style>
+</head>
+
+<body>
+  <div class="login"><button class="button button2">Log in</button>
+  </div>
+  </div>
+  <form action="search" method="post">
+  <p class="googlogo"><img src="https://www.supermarketnews.com/sites/supermarketnews.com/files/styles/article_featured_retina/public/fetch-logo-promo.gif?itok=Ax9jQh_m" class="google"><br>
+    
+    <input type="search" id="search"name="searchbar" placeholder="Search Brand/Category/Retailer..." value="{{request.form.searchbar}}"><br>
+    <br>
+    <!-- <button class="button nav" action="search">Search</button> -->
+  </p>
+    </form>
+  <br><br><br><br>
+</body>
+
+</html>

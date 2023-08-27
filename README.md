@@ -1,6 +1,6 @@
-# SearchTool.py Documentation
+# SearchTool
 
-**Author:** [Your Name]
+**Author:** [Akash Kandarkar]
 **Last Updated:** [Date]
 
 This document provides an overview of the `searchtool.py` script, which is a Python application for searching and matching offers using natural language processing techniques and cosine similarity.
